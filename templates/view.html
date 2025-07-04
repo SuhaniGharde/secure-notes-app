@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>View Notes</title>
+</head>
+<body>
+    <h2>Saved Secure Notes</h2>
+
+    {% if notes %}
+        <ul>
+        {% for note in notes %}
+            <li>{{ note }}</li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No notes found.</p>
+    {% endif %}
+
+    <br>
+    <a href="/">Back to Add Notes</a> | <a href="/logout">Logout</a>
+</body>
+</html>
+
