@@ -21,7 +21,7 @@ def index():
             return redirect('/')
         encrypted = cipher.encrypt(note.encode())
         with open("notes.txt", "ab") as f:
-            f.write(encrypted + b'\n')  # ✅ binary write
+            f.write(encrypted + b'\n')  
         return redirect('/')
 
     return render_template('index.html')
@@ -36,7 +36,7 @@ def view_notes():
         with open("notes.txt", "rb") as f:
             for line in f:
                 if not line.strip():
-                    continue  # ✅ skip blank lines
+                    continue  
                 try:
                     decrypted = cipher.decrypt(line.strip()).decode()
                     notes.append(decrypted)
